@@ -134,7 +134,7 @@ public class AstrologyInfo {
         }
         if (birthDay < defaultMoonDay ){
             dayDifference = (birthDay - defaultMoonDay) + monthDifference - (30-birthDay);
-            //System.out.println("in here");
+            System.out.println("test");
         }
         if (birthDay > defaultMoonDay){
             dayDifference = (birthDay - defaultMoonDay) - (30-birthDay);
