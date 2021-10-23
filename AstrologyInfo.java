@@ -1,10 +1,15 @@
 import java.sql.Time;
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.Locale;
 
 public class AstrologyInfo {
 
     private int birthMonth, birthDay, birthYear;
     private int birthTime;
     private int defaultMoonDay, defaultMoonMonth, defaultMoonYear;
+    private LocalDate date;
+
 
 
     public int getBirthMonth() {
@@ -45,6 +50,7 @@ public class AstrologyInfo {
         defaultMoonDay = 23;
         defaultMoonMonth = 1;
         defaultMoonYear = 1921;
+        date = LocalDate.of(birthYear,birthMonth,birthDay);
     }
 
     public void getSunSign() {
@@ -124,32 +130,44 @@ public class AstrologyInfo {
 
     public void getMoonSign(){
 
-        int totalDays = 0;
-        int dayDifference = 0;
-        int yearDifference = (birthYear - defaultMoonYear)*365;
-        int monthDifference = (birthMonth - defaultMoonMonth)*30;
-        if (birthDay < defaultMoonDay && birthMonth == defaultMoonMonth){
-            dayDifference = (birthDay - defaultMoonDay) ;
-            System.out.println(dayDifference);
-        }
-        if (birthDay < defaultMoonDay ){
-            dayDifference = (birthDay - defaultMoonDay) + monthDifference - (30-birthDay);
-            System.out.println("test");
-        }
-        if (birthDay > defaultMoonDay){
-            dayDifference = (birthDay - defaultMoonDay) - (30-birthDay);
-        }
+     //   LocalDate defaultDate =
 
-        totalDays += yearDifference;
-        System.out.println(totalDays);
-        totalDays += monthDifference;
-        System.out.println(totalDays);
-        totalDays = totalDays - dayDifference;
-        System.out.println(totalDays);
-        //double birthTimeValue = birthTime/24;
-       // totalDays += birthTimeValue;
 
-        System.out.println(totalDays);
+
+
+
+
+
+
+
+
+
+//        int totalDays = 0;
+//        int dayDifference = 0;
+//        int yearDifference = (birthYear - defaultMoonYear)*365;
+//        int monthDifference = (birthMonth - defaultMoonMonth)*30;
+//        if (birthDay < defaultMoonDay && birthMonth == defaultMoonMonth){
+//            dayDifference = (birthDay - defaultMoonDay) ;
+//            System.out.println(dayDifference);
+//        }
+//        if (birthDay < defaultMoonDay ){
+//            dayDifference = (birthDay - defaultMoonDay) + monthDifference - (30-birthDay);
+//            System.out.println("test");
+//        }
+//        if (birthDay > defaultMoonDay){
+//            dayDifference = (birthDay - defaultMoonDay) - (30-birthDay);
+//        }
+//
+//        totalDays += yearDifference;
+//        System.out.println(totalDays);
+//        totalDays += monthDifference;
+//        System.out.println(totalDays);
+//        totalDays = totalDays - dayDifference;
+//        System.out.println(totalDays);
+//        //double birthTimeValue = birthTime/24;
+//       // totalDays += birthTimeValue;
+//
+//        System.out.println(totalDays);
 
     }
 
