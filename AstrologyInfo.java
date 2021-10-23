@@ -9,6 +9,7 @@ public class AstrologyInfo {
     private int birthTime;
     private int defaultMoonDay, defaultMoonMonth, defaultMoonYear;
     private LocalDate date;
+    private LocalDate defaultDate;
 
 
 
@@ -51,6 +52,8 @@ public class AstrologyInfo {
         defaultMoonMonth = 1;
         defaultMoonYear = 1921;
         date = LocalDate.of(birthYear,birthMonth,birthDay);
+        defaultDate = LocalDate.of(1921, 1, 23);
+
     }
 
     public void getSunSign() {
@@ -130,7 +133,7 @@ public class AstrologyInfo {
 
     public void getMoonSign(){
 
-     //   LocalDate defaultDate =
+      //  LocalDate defaultDate =
 
 
 
