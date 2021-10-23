@@ -6,10 +6,30 @@ import java.util.Locale;
 public class AstrologyInfo {
 
     private int birthMonth, birthDay, birthYear;
-    private int birthTime;
     private int defaultMoonDay, defaultMoonMonth, defaultMoonYear;
+    private int birthTime;
     private LocalDate date;
     private LocalDate defaultDate;
+    private DateHandler dateHandler;
+    
+    
+    
+    
+
+
+	public AstrologyInfo(int birthMonth, int birthDay, int birthYear, int birthTime) {
+        this.birthMonth = birthMonth;
+        this.birthDay = birthDay;
+        this.birthYear = birthYear;
+        this.birthTime = birthTime;
+        defaultMoonDay = 23;
+        defaultMoonMonth = 1;
+        defaultMoonYear = 1921;
+        date = LocalDate.of(birthYear,birthMonth,birthDay);
+        defaultDate = LocalDate.of(1921, 1, 23);
+        dateHandler = new DateHandler(date,defaultDate);
+
+    }
 
 
 
@@ -42,19 +62,44 @@ public class AstrologyInfo {
     public void setBirthTime(int birthTime) {
         this.birthTime = birthTime;
     }
+    
 
-    public AstrologyInfo(int birthMonth, int birthDay, int birthYear) {
-        this.birthMonth = birthMonth;
-        this.birthDay = birthDay;
-        this.birthYear = birthYear;
-        this.birthTime = birthTime;
-        defaultMoonDay = 23;
-        defaultMoonMonth = 1;
-        defaultMoonYear = 1921;
-        date = LocalDate.of(birthYear,birthMonth,birthDay);
-        defaultDate = LocalDate.of(1921, 1, 23);
+    public int getDefaultMoonDay() {
+		return defaultMoonDay;
+	}
 
-    }
+
+
+	public void setDefaultMoonDay(int defaultMoonDay) {
+		this.defaultMoonDay = defaultMoonDay;
+	}
+
+
+
+	public int getDefaultMoonMonth() {
+		return defaultMoonMonth;
+	}
+
+
+
+	public void setDefaultMoonMonth(int defaultMoonMonth) {
+		this.defaultMoonMonth = defaultMoonMonth;
+	}
+
+
+
+	public int getDefaultMoonYear() {
+		return defaultMoonYear;
+	}
+
+
+
+	public void setDefaultMoonYear(int defaultMoonYear) {
+		this.defaultMoonYear = defaultMoonYear;
+	}
+
+
+   
 
     public void getSunSign() {
         if ((birthMonth == 3 && birthDay >= 21) || (birthMonth == 4 && birthDay <= 19)) {
@@ -133,7 +178,64 @@ public class AstrologyInfo {
 
     public void getMoonSign(){
 
-      //  LocalDate defaultDate =
+     float dayDifference = dateHandler.getDaysDifference();
+     float hourValue = (((float)birthTime)/ ((float)24));
+     System.out.println(hourValue);
+     dayDifference += hourValue;
+     System.out.println(dayDifference);
+     float moonValue = (float) ((float) (13.176*dayDifference) + 12.0947 * 
+    		 Math.cos(0.11403 * dayDifference) * 
+    		 Math.sin(0.11403 *(dayDifference + 1)) - 6.627);
+     
+     System.out.println(moonValue);
+     float moonValue2 = moonValue/ (float) 360;
+     System.out.println(moonValue2);
+     int moonValue3 = (int) (moonValue/360);
+     System.out.println(moonValue3);
+     float moonValueDiff = moonValue2-moonValue3;
+     System.out.println(moonValueDiff);
+     
+     float finalValue = moonValueDiff* (float) 360;
+     System.out.println(finalValue);
+     
+    if (finalValue == 0 || finalValue < 29.999) {
+    	System.out.println("Your moon sign is Leo!");
+    }
+    else if (finalValue == 30 || finalValue < 59.999) {
+    	System.out.println("Your moon sign is Virgo!");
+    }
+    else if (finalValue == 60 || finalValue < 89.999) {
+    	System.out.println("Your moon sign is Libra!");
+    }
+    else if (finalValue == 90 || finalValue < 119.999) {
+    	System.out.println("Your moon sign is Scorpio!");
+    }
+    else if (finalValue == 120 || finalValue < 149.999) {
+    	System.out.println("Your moon sign is Sagittarius!");
+    }
+    else if (finalValue == 150 || finalValue < 179.999) {
+    	System.out.println("Your moon sign is Capricorn!");
+    }
+    else if (finalValue == 180 || finalValue < 209.999) {
+    	System.out.println("Your moon sign is Aquarius!");
+    }
+    else if (finalValue == 210 || finalValue < 239.999) {
+    	System.out.println("Your moon sign is Pisces!");
+    }
+    else if (finalValue == 240 || finalValue < 269.999) {
+    	System.out.println("Your moon sign is Aries!");
+    }
+    else if (finalValue == 270 || finalValue < 299.999) {
+    	System.out.println("Your moon sign is Taurus!");
+    }
+    else if (finalValue == 300 || finalValue < 329.999) {
+    	System.out.println("Your moon sign is Gemini!");
+    }
+    else if (finalValue == 330 || finalValue < 359.999) {
+    	System.out.println("Your moon sign is Cancer!");
+    }
+     
+     
 
 
 

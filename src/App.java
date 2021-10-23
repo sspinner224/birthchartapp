@@ -31,13 +31,15 @@ public class App {
 
 //        System.out.println("What is your birth time?");
 //        Time birthTime = Time.valueOf(scanner.next());
-
-        AstrologyInfo astrologyInfo = new AstrologyInfo(birthMonth, birthDay, birthYear);
-        astrologyInfo.getSunSign();
-
+        
         System.out.println("Please enter your birth hour as a number. \n" +
                 "For example: if you were born at 7pm, please enter 19.");
         int birthTime = scanner.nextInt();
+
+        AstrologyInfo astrologyInfo = new AstrologyInfo(birthMonth, birthDay, birthYear, birthTime);
+        astrologyInfo.getSunSign();
+
+        
         astrologyInfo.getMoonSign();
 
         /*
