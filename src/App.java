@@ -1,6 +1,11 @@
+ 
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import javafx.application.Application;
+import javafx.stage.Stage;
+
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.image.BufferedImage;
@@ -10,11 +15,24 @@ import java.io.File;
 import java.util.Scanner;
 import java.sql.Time;
 
-public class App {
 
-    private BufferedImage starrySky;
+//import javafx.application.Application;
 
-    public App(){
+public class App extends Application{
+
+	
+	 
+	 @Override
+		public void start(Stage arg0) throws Exception {
+			// TODO Auto-generated method stub
+			
+		}
+    
+
+    public App() {
+    	
+    	
+    	/*
         System.out.println("Welcome to our astrology calculator app.\n" +
                 "If you would like to find out information about your birth chart, please provide the following" +
                 "information in number format.\n(Ex. Jan = 1)\n" +
@@ -41,6 +59,8 @@ public class App {
 
         
         astrologyInfo.getMoonSign();
+        
+        */
 
         /*
         super("Birth Chart App");
@@ -66,5 +86,7 @@ public class App {
     public static void main(String[] args) {
         new App();
     }
+	
+
 
 }
