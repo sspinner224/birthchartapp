@@ -2,11 +2,8 @@
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -18,26 +15,34 @@ import java.util.Scanner;
 import java.sql.Time;
 
 
-//import javafx.application.Application;
 
-public class App extends Application{
+
+public class App extends JFrame{
 
 	
 	 
-	 @Override
-		public void start(Stage primaryStage) throws Exception {
-			// TODO Auto-generated method stub
-		 
-		 BorderPane root = new BorderPane();
-		 Scene scene = new Scene(root,400,400);
-		 scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-		 primaryStage.setScene(scene);
-		 primaryStage.show();
-			
-		}
-    
+	
+	
+
 
     public App() {
+    	
+
+        super("Birth Chart App");
+        this.setSize(500, 400);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
+      
+        
+        DrawingPanel drawingPanel = new DrawingPanel();
+    	this.add(drawingPanel);
+       
+
+       
+        //this.validate();
+      
+    	
+    	
     	
     	
     	/*
@@ -68,31 +73,30 @@ public class App extends Application{
         
         astrologyInfo.getMoonSign();
         
-        */
+       */
 
+  
+
+        
         /*
-        super("Birth Chart App");
-        this.setSize(500, 400);
-        this.setVisible(true);
-
         JLabel background = new JLabel();
         try {
             starrySky = ImageIO.read(new File("src/starrysky.jpeg"));
         } catch (IOException | NullPointerException e) {}
         background.setIcon(new ImageIcon(starrySky));
         this.add(background);
-        background.setSize(500, 400);
-
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.validate();
         */
+        //background.setSize(500, 400);
 
 
 
+       
+        this.pack();
+        this.setVisible(true);
 
     }
     public static void main(String[] args) {
-       launch(args);
+      new App();
     }
 	
 
