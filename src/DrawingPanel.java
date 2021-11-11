@@ -1,7 +1,9 @@
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,16 +23,22 @@ public class DrawingPanel extends JPanel{
 	public DrawingPanel() {
 		
 
-        super();
+        super(new BorderLayout());
         this.setBackground(java.awt.Color.white);
         this.setPreferredSize(new java.awt.Dimension(500, 500));
         this.setSize(new java.awt.Dimension(500, 500));
         
+        JLabel welcomeLabel = new JLabel("Discover your birth chart!");
+        this.add(welcomeLabel, BorderLayout.NORTH);
+        JPanel infoPanel = new JPanel(new GridLayout(4,2));
+        
+     
        
        
 
         
-        GridLayout gridLayout = new GridLayout(4,2);
+       
+        //GridLayout gridLayout = new GridLayout(4,2);
         
         JLabel monthLabel = new JLabel("Birth Month:");
         JComboBox<Integer> monthBox = new JComboBox<Integer>();
@@ -76,6 +84,7 @@ public class DrawingPanel extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				birthMonth = (int) monthBox.getSelectedItem();
+				//System.out.println(birthMonth);
 				
 			}
         	
@@ -87,6 +96,7 @@ public class DrawingPanel extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				birthDay = (int) dayBox.getSelectedItem();
+				//System.out.println(birthDay);
 				
 			}
         	
@@ -99,6 +109,9 @@ public class DrawingPanel extends JPanel{
 				// TODO Auto-generated method stub
 				birthYear = (int) yearBox.getSelectedItem();
 				
+				
+				//System.out.println(birthYear);
+				
 			}
         	
         });
@@ -110,26 +123,54 @@ public class DrawingPanel extends JPanel{
 				// TODO Auto-generated method stub
 				birthHour = (int) hourBox.getSelectedItem();
 				
-				AstrologyInfo astrologyInfo = new AstrologyInfo(birthMonth, birthDay, birthYear, birthHour);
-		        astrologyInfo.getSunSign();
-
-		        
-		        astrologyInfo.getMoonSign();
+				
 				
 			}
         	
         });
+        
+        
+        JButton submitButton = new JButton("Submit");
+        
+              submitButton.addActionListener(new ActionListener() {
+
+			        @Override
+			        public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				      AstrologyInfo astrologyInfo = new AstrologyInfo(birthMonth, birthDay, birthYear, birthHour);
+		              astrologyInfo.getSunSign();
+		              
+		              if(e.getSource() == submitButton) {
+		            	  NewWindow newWindow = new NewWindow(astrologyInfo);
+		              }
+
+		        
+		              //astrologyInfo.getMoonSign();
+				
+			}
+        	
+        });
+        
+        
+
       
       
         
-        this.add(monthLabel);
-        this.add(monthBox);
-        this.add(dayLabel);
-        this.add(dayBox);
-        this.add(yearLabel);
-        this.add(yearBox);
-        this.add(hourLabel);
-        this.add(hourBox);
+        infoPanel.add(monthLabel);
+        infoPanel.add(monthBox);
+        infoPanel.add(dayLabel);
+        infoPanel.add(dayBox);
+        infoPanel.add(yearLabel);
+        infoPanel.add(yearBox);
+        infoPanel.add(hourLabel);
+        infoPanel.add(hourBox);
+        
+        this.add(infoPanel, BorderLayout.CENTER);
+        
+        
+        
+        this.add(submitButton, BorderLayout.SOUTH);
 	}
 
 }

@@ -11,6 +11,9 @@ public class AstrologyInfo {
     private LocalDate date;
     private LocalDate defaultDate;
     private DateHandler dateHandler;
+    private String moonSign;
+    private String sunSign;
+    
     
     
     
@@ -25,6 +28,8 @@ public class AstrologyInfo {
         defaultMoonDay = 23;
         defaultMoonMonth = 1;
         defaultMoonYear = 1921;
+        moonSign = " ";
+        sunSign = " ";
         date = LocalDate.of(birthYear,birthMonth,birthDay);
         defaultDate = LocalDate.of(1921, 1, 23);
         dateHandler = new DateHandler(date,defaultDate);
@@ -97,10 +102,111 @@ public class AstrologyInfo {
 	public void setDefaultMoonYear(int defaultMoonYear) {
 		this.defaultMoonYear = defaultMoonYear;
 	}
+	
+	public String getSunSign() {
+        if ((birthMonth == 3 && birthDay >= 21) || (birthMonth == 4 && birthDay <= 19)) {
+        	
+        	sunSign = "Aries";
+
+            //System.out.println("You're an Aries");
+
+        }
+
+        else if ((birthMonth == 4 && birthDay >= 20) || (birthMonth == 5 && birthDay <= 20)) {
+        	
+        	sunSign = "Taurus";
+
+            //System.out.println("You're a Taurus");
+
+        }
+
+        else if ((birthMonth == 5 && birthDay >= 21) || (birthMonth == 6 && birthDay <= 20)) {
+        	
+        	sunSign = "Gemini";
+
+            //System.out.println("You're a Gemini");
+
+        }
+
+        else if ((birthMonth == 6 && birthDay >= 21) || (birthMonth == 7 && birthDay <= 22)) {
+        	
+        	sunSign = "Cancer";
+
+            //System.out.println("You're a Cancer");
+
+        }
+
+        else if ((birthMonth == 7 && birthDay >= 23) || (birthMonth == 8 && birthDay <= 22)) {
+        	
+        	sunSign = "Leo";
+
+            //System.out.println("You're a Leo");
+
+        }
+
+        else if ((birthMonth == 8 && birthDay >= 23) || (birthMonth == 9 && birthDay <= 22)) {
+        	
+        	sunSign = "Virgo";
+
+            //System.out.println("You're a Virgo");
+
+        }
+
+        else if ((birthMonth == 9 && birthDay >= 23) || (birthMonth == 10 && birthDay <= 22)) {
+        	
+        	sunSign = "Libra";
+
+            //System.out.println("You're a Libra");
+
+        }
+
+        else if ((birthMonth == 10 && birthDay >= 23) || (birthMonth == 11 && birthDay <= 21)) {
+        	
+        	sunSign = "Scorpio";
+
+            //System.out.println("You're a Scorpio");
+
+        }
+
+        else if ((birthMonth == 11 && birthDay >= 22) || (birthMonth == 12 && birthDay <= 21)) {
+        	
+        	sunSign = "Gemini";
+
+            //System.out.println("You're a Sagittarius");
+
+        }
+
+        else if ((birthMonth == 12 && birthDay >= 22) || (birthMonth == 1 && birthDay <= 20)) {
+        	
+        	sunSign = "Capricorn";
+
+            //System.out.println("You're a Capricorn");
+
+        }
+
+        else if ((birthMonth == 1 && birthDay >= 21) || (birthMonth == 2 && birthDay <= 18)) {
+        	
+        	sunSign = "Aquarius";
+
+            //System.out.println("You're an Aquarius");
+
+        }
+
+        else if ((birthMonth == 2 && birthDay >= 19) || (birthMonth == 3 && birthDay <= 20)) {
+        	
+        	sunSign = "Pisces";
+
+            //System.out.println("You're a Pisces");
+
+        }
+		return sunSign;
+
+    }
 
 
    
 
+	/*
     public void getSunSign() {
         if ((birthMonth == 3 && birthDay >= 21) || (birthMonth == 4 && birthDay <= 19)) {
 
@@ -236,6 +342,8 @@ public class AstrologyInfo {
     }
      
      
+    
+     
 
 
 
@@ -275,6 +383,7 @@ public class AstrologyInfo {
 //        System.out.println(totalDays);
 
     }
+     */
 
 
 
