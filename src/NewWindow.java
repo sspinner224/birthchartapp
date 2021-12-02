@@ -3,6 +3,7 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridLayout;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -24,10 +25,16 @@ public class NewWindow {
 		
 		this.astrologyInfo = astrologyInfo;
 		
+		ResultPanel resultPanel = new ResultPanel(astrologyInfo);
+		frame.add(resultPanel);
+		
 		
 	   
+		
+		
+		/*
 	  
-		JLabel resultLabel = new JLabel("Results:");
+		JLabel resultLabel = new JLabel("Results");
 		resultLabel.setBounds(0,15,100,50);
         resultLabel.setFont(new Font(null,Font.PLAIN,25));
         frame.add(resultLabel);
@@ -39,6 +46,10 @@ public class NewWindow {
         moonResultLabel.setFont(new Font(null,Font.PLAIN,20));
         frame.add(sunResultLabel);
         frame.add(moonResultLabel);
+        JButton button = new JButton("Learn More about your signs here!");
+        frame.add(button);
+        
+        */
     
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

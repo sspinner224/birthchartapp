@@ -34,8 +34,10 @@ public class App extends JFrame{
         
       
         
-        DrawingPanel drawingPanel = new DrawingPanel();
-    	this.add(drawingPanel);
+        //DrawingPanel drawingPanel = new DrawingPanel();
+    	//this.add(drawingPanel);
+        HomeWindow homeWindow = new HomeWindow();
+        this.add(homeWindow);
        
 
        

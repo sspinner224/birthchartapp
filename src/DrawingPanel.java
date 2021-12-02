@@ -15,20 +15,22 @@ public class DrawingPanel extends JPanel{
 	
 	int count = 1;
 	private int birthMonth, birthDay, birthYear, birthHour;
+	private String nameValue;
 	
 	
 	
 	
 	
-	public DrawingPanel() {
+	public DrawingPanel(String nameValue) {
 		
 
         super(new BorderLayout());
         this.setBackground(java.awt.Color.white);
         this.setPreferredSize(new java.awt.Dimension(500, 500));
         this.setSize(new java.awt.Dimension(500, 500));
+        this.nameValue = nameValue;
         
-        JLabel welcomeLabel = new JLabel("Discover your birth chart!");
+        JLabel welcomeLabel = new JLabel("Hello, " + nameValue + "!" + " Discover your birth chart!");
         this.add(welcomeLabel, BorderLayout.NORTH);
         JPanel infoPanel = new JPanel(new GridLayout(4,2));
         
