@@ -86,19 +86,16 @@ public class DrawingPanel extends JPanel{
         super(new BorderLayout());
       //  JScrollPane scrollBar=new JScrollPane(panel,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         this.setBackground(Color.white);
-//        this.setBorder(BorderFactory.createRaisedBevelBorder());
 //        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 //        this.setSize(screenSize.width, screenSize.height);
-        this.setSize(420,420);
+        this.setSize(1000,500);
         this.nameValue = nameValue;
         this.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
-        JLabel welcomeLabel = new JLabel("Hello, " + nameValue + "!" + " Enter your information below:");
-        JLabel instructions = new JLabel("If your birth hour is 7pm, use 19 as birth hour.");
+        JLabel welcomeLabel = new JLabel("Hello, " + nameValue + "!" + " Enter your information below:\n If your birth hour is 7pm, use 19 as birth hour.");
         this.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         this.add(welcomeLabel, BorderLayout.NORTH);
-        this.add(instructions);
 
-        JPanel infoPanel = new JPanel(new GridLayout(4,2));
+        JPanel infoPanel = new JPanel(new GridLayout(4,3));
         //GridLayout gridLayout = new GridLayout(4,2);
         
         JLabel monthLabel = new JLabel("Birth Month:");
@@ -180,10 +177,8 @@ public class DrawingPanel extends JPanel{
 				      AstrologyInfo astrologyInfo = new AstrologyInfo(nameValue, birthMonth, birthDay, birthYear, birthHour, birthMinute, birthLocation);
 				      CafeAstrologyUtility utility = new CafeAstrologyUtility();
 				      CafeAstrologyData cafeAstrologyData = utility.getInfo(astrologyInfo);
-                        System.out.println("In here");
 		            //  astrologyInfo.getSunSign();
 		              if(e.getSource() == submitButton) {
-		                  System.out.println("In here");
 		            	  NewWindow newWindow = new NewWindow();
 		              }
 

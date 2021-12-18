@@ -22,8 +22,9 @@ public class HomeWindow extends JPanel{
 
 	public HomeWindow() {
 		
-		super(new GridLayout(30,30));
+		super(new GridLayout(10,30));
 		//JFrame frame = new JFrame("Astrology");
+	//	this.setSize(1500,500);
 		
 		astrologyLabel = new JLabel("Discover Your Birth Chart!");
 		authorLabel = new JLabel("By: Sadjell and Samantha");

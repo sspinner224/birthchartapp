@@ -14,7 +14,7 @@ public class SecondWindow {
 		frame.add(drawingPanel);
 //		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 //		frame.setSize(screenSize.width, screenSize.height);
-		frame.setSize(500,500);
+		frame.setSize(1000,500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
 		frame.setVisible(true);

@@ -49,10 +49,8 @@ public class CafeAstrologyUtility {
         headers.addHeader("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36");
 
         Response response = HttpRequest.post("https://cafeastrology.com/wp-admin/admin-ajax.php", params, headers);
-     //   System.out.println(response);
 
         String report = response.getBody().getAsJsonObject().get("report").toString();
-     //   System.out.println(report);
 
         Document document = Jsoup.parse(report);
         String doc = document.toString().replaceAll("\\&quot;", "");
@@ -71,8 +69,6 @@ public class CafeAstrologyUtility {
 //        System.out.println(signs.get(8));
 //        System.out.println(signs.get(9));
 //        System.out.println(signs.get(10));
-        //Elements ps = document.body().getElementsByTag("p");
-        //System.out.println(ps);
 
         String sun = signs.get(0).text();
         String rising = signs.get(1).text();
@@ -97,31 +93,28 @@ public class CafeAstrologyUtility {
         String uranusSign = getSign(uranus);
         String neptuneSign = getSign(neptune);
         String plutoSign = getSign(pluto);
-      //  String image = get
 
-        System.out.println(sunSign);
-//        System.out.println("Your moon sign is " + moonSign);
-//        System.out.println("Your rising sign is " + risingSign);
-//        System.out.println("Your mercury sign is " + mercurySign);
-//        System.out.println("Your venus sign is " + venusSign);
-//        System.out.println("Your mars sign is " + marsSign);
-//        System.out.println("Your jupiter sign is " + jupiterSign);
-//        System.out.println("Your saturn sign is " + saturnSign);
-//        System.out.println("Your uranus sign is " + uranusSign);
-//        System.out.println("Your neptune sign is " + neptuneSign);
-//        System.out.println("Your pluto sign is " + plutoSign);
+        System.out.println("Your sun sign is " + sunSign);
+        System.out.println("Your moon sign is " + moonSign);
+        System.out.println("Your rising sign is " + risingSign);
+        System.out.println("Your mercury sign is " + mercurySign);
+        System.out.println("Your venus sign is " + venusSign);
+        System.out.println("Your mars sign is " + marsSign);
+        System.out.println("Your jupiter sign is " + jupiterSign);
+        System.out.println("Your saturn sign is " + saturnSign);
+        System.out.println("Your uranus sign is " + uranusSign);
+        System.out.println("Your neptune sign is " + neptuneSign);
+        System.out.println("Your pluto sign is " + plutoSign);
 
         String imageBase64Encoded = response.getBody().getAsJsonObject().get("image").toString();
-        //    System.out.println(imageBase64Encoded);
 
         Document documentImage = Jsoup.parse(imageBase64Encoded);
         String docImage = documentImage.toString().replaceAll("\\&quot;", "");
         Document documentImage2 = Jsoup.parse(docImage);
-        //     System.out.println(documentImage2);
+
         Element image = documentImage2.getElementsByTag("img").first();
         String url = image.absUrl("src");
         srcValue = image.attr("src");
-        //System.out.println(srcValue);
 
         CafeAstrologyData cafeAstrologyData = new CafeAstrologyData(sunSign, risingSign, moonSign,mercurySign,venusSign,
                 marsSign, jupiterSign, saturnSign, uranusSign, neptuneSign, plutoSign, srcValue);
