@@ -6,4 +6,8 @@ This application uses the users birth information, consisting of their birth day
 
 The data for this application is from CafeAstrology. The app collects the users data, sends it to the headers needed on the website using an http request, and uses the retrieved data to print an image of their natal chart, as well as the names and planets of the 11 signs in their chart.
 
-This application is written in Java.
+This application is written in Java and uses JavaSwing.
+
+## Project Status
+
+In the current status of the project this application uses hard-coded data instead of the birth data selected by the user. The user selections must be converted to strings and passed to the data request for the website; this is still being worked on. 
